@@ -1,43 +1,38 @@
-import MenuIcon from '@mui/icons-material/Menu';
+import AppsIcon from '@mui/icons-material/Apps';
+import ReplyIcon from '@mui/icons-material/Reply';
 import AppBar from '@mui/material/AppBar';
 import IconButton from '@mui/material/IconButton';
+import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import React from 'react';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
-interface Props {}
-
-const drawerWidth = 240;
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+    primary: {
+      main: '#1976d2'
+    }
+  }
+});
 
 export default function Header(props: Props) {
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
-
   return (
-    <AppBar
-      position="fixed"
-      sx={{
-        width: { sm: `calc(100% - ${drawerWidth}px)` },
-        ml: { sm: `${drawerWidth}px` }
-      }}
-    >
-      <Toolbar>
-        <IconButton
-          color="inherit"
-          aria-label="open drawer"
-          edge="start"
-          onClick={handleDrawerToggle}
-          sx={{ mr: 2, display: { sm: 'none' } }}
-        >
-          <MenuIcon />
-        </IconButton>
-        <Typography variant="h6" noWrap component="div">
-          Responsive drawer
-        </Typography>
-      </Toolbar>
-    </AppBar>
+    <ThemeProvider theme={darkTheme}>
+      <AppBar position="fixed">
+        <Toolbar variant="dense">
+          <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
+            <AppsIcon />
+          </IconButton>
+          <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
+            <ReplyIcon />
+          </IconButton>
+          <Tabs aria-label="basic tabs example">
+            <Tab label="Просмотр" />
+            <Tab label="Управление" />
+          </Tabs>
+        </Toolbar>
+      </AppBar>
+    </ThemeProvider>
   );
 }

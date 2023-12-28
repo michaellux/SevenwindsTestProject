@@ -1,0 +1,11 @@
+.layout {
+  &-nav {
+    &-box {
+      .MuiDrawer-paper {
+        width: 270px;
+        position: initial;
+        padding-top: 3rem;
+      }
+    }
+  }
+}

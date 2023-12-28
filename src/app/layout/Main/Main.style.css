@@ -1,0 +1,9 @@
+.layout {
+  &-main {
+    &-box {
+      width: calc(100% - 240px);
+      position: initial;
+      padding-top: 3rem;
+    }
+  }
+}

@@ -1,5 +1,8 @@
-import InboxIcon from '@mui/icons-material/Inbox';
-import MailIcon from '@mui/icons-material/Mail';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Accordion from '@mui/material/Accordion';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import AccordionSummary from '@mui/material/AccordionSummary';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
@@ -8,40 +11,62 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import Toolbar from '@mui/material/Toolbar';
-import React from 'react';
-
+import Stack from '@mui/material/Stack';
+import Typography from '@mui/material/Typography';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import '../Nav/Nav.style.css';
 interface Props {}
 
-const drawerWidth = 240;
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+    primary: {
+      main: '#1976d2'
+    }
+  }
+});
 
 export default function Nav(props: Props) {
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
-
   const drawer = (
     <div>
-      <Toolbar />
+      <Accordion>
+        <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">
+          <Stack spacing={0}>
+            <Typography>Название проекта</Typography>
+            <Typography>Аббревиатура</Typography>
+          </Stack>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit
+            leo lobortis eget.
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
       <Divider />
       <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+        {[
+          'По проекту',
+          'Объекты',
+          'РД',
+          'МТО',
+          'СМР',
+          'График',
+          'МиМ',
+          'Рабочие',
+          'Капвложения',
+          'Бюджет',
+          'Финансирование',
+          'Панорамы',
+          'Камеры',
+          'Поручения',
+          'Контрагенты'
+        ].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+              <ListItemIcon>
+                <DashboardIcon></DashboardIcon>
+              </ListItemIcon>
               <ListItemText primary={text} />
             </ListItemButton>
           </ListItem>
@@ -51,32 +76,10 @@ export default function Nav(props: Props) {
   );
 
   return (
-    <Box component="nav" sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }} aria-label="mailbox folders">
-      {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-      <Drawer
-        variant="temporary"
-        open={mobileOpen}
-        onClose={handleDrawerToggle}
-        ModalProps={{
-          keepMounted: true // Better open performance on mobile.
-        }}
-        sx={{
-          display: { xs: 'block', sm: 'none' },
-          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth }
-        }}
-      >
-        {drawer}
-      </Drawer>
-      <Drawer
-        variant="permanent"
-        sx={{
-          display: { xs: 'none', sm: 'block' },
-          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth }
-        }}
-        open
-      >
-        {drawer}
-      </Drawer>
-    </Box>
+    <ThemeProvider theme={darkTheme}>
+      <Box className="layout-nav-box" component="nav" aria-label="mailbox folders">
+        <Drawer variant="permanent">{drawer}</Drawer>
+      </Box>
+    </ThemeProvider>
   );
 }
