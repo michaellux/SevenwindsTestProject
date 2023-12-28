@@ -23,6 +23,8 @@ module.exports = {
   },
   rules: {
     // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
+    'react/react-in-jsx-scope': DISABLED,
+    'react/jsx-uses-react': DISABLED,
     '@typescript-eslint/camelcase': DISABLED,
     '@typescript-eslint/interface-name-prefix': DISABLED,
     '@typescript-eslint/no-empty-interface': DISABLED,
