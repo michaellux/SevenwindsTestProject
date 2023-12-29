@@ -1,10 +1,33 @@
 .layout {
   &-nav {
     &-box {
+      height: 100vh;
+      background: #27272a;
+      .accordion.MuiAccordion-root {
+        background: #27272a;
+        border-radius: 0;
+        border-right: 1px solid #454548;
+      }
       .MuiDrawer-paper {
         width: 270px;
         position: initial;
         padding-top: 3rem;
+        .MuiAccordionSummary-content {
+          margin: 7.5px 0;
+          color: #a1a1aa;
+          .name {
+            font-size: 1rem;
+          }
+          .abbr {
+            font-size: 0.7rem;
+          }
+        }
+        .MuiList-root {
+          background: #27272a;
+        }
+        .MuiListItemIcon-root {
+          min-width: 40px;
+        }
       }
     }
   }

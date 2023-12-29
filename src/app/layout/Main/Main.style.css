@@ -4,6 +4,16 @@
       width: calc(100% - 240px);
       position: initial;
       padding-top: 3rem;
+      background: #202124;
+      .MuiStack-root {
+        background: #27272a;
+        border-bottom: 1px solid #414144;
+        .MuiTypography-root {
+          padding: 1rem;
+          color: #ffffff;
+          border-right: 1px solid #414144;
+        }
+      }
     }
   }
 }

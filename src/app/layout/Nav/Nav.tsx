@@ -29,11 +29,11 @@ const darkTheme = createTheme({
 export default function Nav(props: Props) {
   const drawer = (
     <div>
-      <Accordion>
+      <Accordion className="accordion">
         <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">
           <Stack spacing={0}>
-            <Typography>Название проекта</Typography>
-            <Typography>Аббревиатура</Typography>
+            <Typography className="name">Название проекта</Typography>
+            <Typography className="abbr">Аббревиатура</Typography>
           </Stack>
         </AccordionSummary>
         <AccordionDetails>

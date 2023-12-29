@@ -6,7 +6,7 @@ import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import Toolbar from '@mui/material/Toolbar';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-
+import '../Header/Header.style.css';
 const darkTheme = createTheme({
   palette: {
     mode: 'dark',
@@ -19,7 +19,7 @@ const darkTheme = createTheme({
 export default function Header(props: Props) {
   return (
     <ThemeProvider theme={darkTheme}>
-      <AppBar position="fixed">
+      <AppBar className="layout-header-appbar" position="fixed">
         <Toolbar variant="dense">
           <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
             <AppsIcon />

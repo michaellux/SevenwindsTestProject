@@ -1,0 +1,11 @@
+.layout {
+  &-header {
+    &-appbar.MuiAppBar-root {
+      box-shadow: none;
+      border-bottom: 1px solid #414144;
+      .MuiSvgIcon-root {
+        fill: #a1a1aa;
+      }
+    }
+  }
+}
