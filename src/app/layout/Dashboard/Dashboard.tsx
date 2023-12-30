@@ -1,3 +1,4 @@
+import React from 'react';
 import Box from '@mui/material/Box';
 import '../Dashboard/Dashboard.style.css';
 import { Header } from '../Header';
