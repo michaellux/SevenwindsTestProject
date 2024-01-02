@@ -1,8 +1,12 @@
+/* eslint-disable react/display-name */
+import ArticleIcon from '@mui/icons-material/Article';
 import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
 import {
   DataGrid,
   GridColDef,
   GridEventListener,
+  GridRenderCellParams,
   GridRowEditStopReasons,
   GridRowModel,
   GridRowModesModel,
@@ -37,8 +41,42 @@ export default function Table(props: Props) {
     }
   ];
 
+  const [hover, setHover] = useState(false);
+
+  const handleDelete = () => {
+    console.log('Delete button clicked');
+  };
+
   const columns: GridColDef[] = [
-    { field: 'equipmentCosts', headerName: 'EquipmentCosts', width: 180, editable: true, disableColumnMenu: true },
+    {
+      field: 'level',
+      headerName: 'Level',
+      width: 100,
+      disableColumnMenu: true,
+      renderCell: (params: GridRenderCellParams) => {
+        return (
+          <div className="cell-content" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+            {hover && (
+              <IconButton onClick={handleDelete}>
+                <ArticleIcon />
+              </IconButton>
+            )}
+          </div>
+        );
+      }
+    },
+    {
+      field: 'equipmentCosts',
+      headerName: 'EquipmentCosts',
+      width: 180,
+      editable: true,
+      disableColumnMenu: true,
+      renderCell: (params: GridRenderCellParams) => {
+        return (
+          <div className="cell-content" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}></div>
+        );
+      }
+    },
     {
       field: 'estimatedProfit',
       headerName: 'EstimatedProfit',
@@ -47,7 +85,12 @@ export default function Table(props: Props) {
       align: 'left',
       headerAlign: 'left',
       editable: true,
-      disableColumnMenu: true
+      disableColumnMenu: true,
+      renderCell: (params: GridRenderCellParams) => {
+        return (
+          <div className="cell-content" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}></div>
+        );
+      }
     },
     {
       field: 'machineOperatorSalary',
@@ -57,7 +100,12 @@ export default function Table(props: Props) {
       editable: true,
       disableColumnMenu: true,
       align: 'left',
-      headerAlign: 'left'
+      headerAlign: 'left',
+      renderCell: (params: GridRenderCellParams) => {
+        return (
+          <div className="cell-content" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}></div>
+        );
+      }
     },
     {
       field: 'mainCosts',
@@ -67,7 +115,12 @@ export default function Table(props: Props) {
       type: 'number',
       disableColumnMenu: true,
       align: 'left',
-      headerAlign: 'left'
+      headerAlign: 'left',
+      renderCell: (params: GridRenderCellParams) => {
+        return (
+          <div className="cell-content" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}></div>
+        );
+      }
     },
     {
       field: 'materials',
@@ -77,7 +130,12 @@ export default function Table(props: Props) {
       type: 'number',
       disableColumnMenu: true,
       align: 'left',
-      headerAlign: 'left'
+      headerAlign: 'left',
+      renderCell: (params: GridRenderCellParams) => {
+        return (
+          <div className="cell-content" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}></div>
+        );
+      }
     },
     {
       field: 'mimExploitation',
@@ -87,7 +145,12 @@ export default function Table(props: Props) {
       type: 'number',
       disableColumnMenu: true,
       align: 'left',
-      headerAlign: 'left'
+      headerAlign: 'left',
+      renderCell: (params: GridRenderCellParams) => {
+        return (
+          <div className="cell-content" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}></div>
+        );
+      }
     },
     {
       field: 'overheads',
@@ -97,7 +160,12 @@ export default function Table(props: Props) {
       type: 'number',
       disableColumnMenu: true,
       align: 'left',
-      headerAlign: 'left'
+      headerAlign: 'left',
+      renderCell: (params: GridRenderCellParams) => {
+        return (
+          <div className="cell-content" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}></div>
+        );
+      }
     },
     {
       field: 'rowName',
@@ -106,7 +174,12 @@ export default function Table(props: Props) {
       editable: true,
       disableColumnMenu: true,
       align: 'left',
-      headerAlign: 'left'
+      headerAlign: 'left',
+      renderCell: (params: GridRenderCellParams) => {
+        return (
+          <div className="cell-content" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}></div>
+        );
+      }
     },
     {
       field: 'salary',
@@ -116,7 +189,12 @@ export default function Table(props: Props) {
       type: 'number',
       disableColumnMenu: true,
       align: 'left',
-      headerAlign: 'left'
+      headerAlign: 'left',
+      renderCell: (params: GridRenderCellParams) => {
+        return (
+          <div className="cell-content" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}></div>
+        );
+      }
     },
     {
       field: 'supportCosts',
@@ -126,7 +204,12 @@ export default function Table(props: Props) {
       type: 'number',
       disableColumnMenu: true,
       align: 'left',
-      headerAlign: 'left'
+      headerAlign: 'left',
+      renderCell: (params: GridRenderCellParams) => {
+        return (
+          <div className="cell-content" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}></div>
+        );
+      }
     },
     {
       field: 'total',
@@ -136,7 +219,12 @@ export default function Table(props: Props) {
       type: 'number',
       disableColumnMenu: true,
       align: 'left',
-      headerAlign: 'left'
+      headerAlign: 'left',
+      renderCell: (params: GridRenderCellParams) => {
+        return (
+          <div className="cell-content" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}></div>
+        );
+      }
     }
   ];
 
