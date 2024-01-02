@@ -1,4 +1,3 @@
-import React from 'react';
 import AppsIcon from '@mui/icons-material/Apps';
 import ReplyIcon from '@mui/icons-material/Reply';
 import AppBar from '@mui/material/AppBar';

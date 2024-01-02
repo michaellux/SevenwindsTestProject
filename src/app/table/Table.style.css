@@ -1,0 +1,19 @@
+.layout {
+  &-table {
+    .Mui-hovered {
+      .MuiInputBase-input {
+        border: 2px solid #414144;
+        padding: 4px 0 5px;
+      }
+    }
+    .MuiDataGrid-editInputCell {
+      margin: 10px;
+    }
+    .MuiDataGrid-cell.MuiDataGrid-cell--editing:focus-within {
+      outline: none !important;
+    }
+    .MuiDataGrid-cell:focus {
+      outline: none !important;
+    }
+  }
+}

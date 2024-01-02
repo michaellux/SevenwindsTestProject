@@ -10,6 +10,11 @@ export const createEntity = async () => {
   return response.json();
 };
 
+export const getTreeRows = async (eID: number) => {
+  const response = await fetch(`http://185.244.172.108:8081/v1/outlay-rows/entity/${eID}/row/list`);
+  return response.json();
+};
+
 export const useCreateEntity = () => {
   return useMutation({
     mutationFn: createEntity
